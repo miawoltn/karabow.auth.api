@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Email_Confirmation";
+}
+
+<h2>Email Confirmation - @ViewBag.Message</h2>
+<div class="row">
+    <div class="col-sm-4">
+            <h3>Your email has been confirmed</h3>
+            <div class="form-group">
+                <label>Click <a href="Login">here</a> to login</label>
+            </div>
+    </div>
+    <div class="col-sm-4">
+        <h3>Result</h3>
+        <div class="form-group">
+            @*<input class="form-control" type="text" readonly data-bind="value: result" />*@
+            <ul id="error"></ul>
+        </div>
+    </div>
+</div>
