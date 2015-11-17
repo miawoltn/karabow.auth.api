@@ -64,6 +64,3 @@ C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\Ka
 C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\KarabowID\bin\System.Web.WebPages.xml
 C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\KarabowID\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\KarabowID\bin\System.Web.WebPages.Razor.xml
-C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\KarabowID\obj\Debug\KarabowID.Migrations.dbmodel.resources
-C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\KarabowID\obj\Debug\KarabowID.Migrations.dbmodel1.resources
-C:\Users\Muhammad Amin\Documents\Visual Studio 2013\Projects\Karabow.Auth.Api\KarabowID\obj\Debug\KarabowID.Migrations.dbmodel2.resources

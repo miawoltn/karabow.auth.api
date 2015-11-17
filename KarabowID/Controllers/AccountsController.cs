@@ -14,10 +14,10 @@ using System.Net;
 
 namespace KarabowID.Controllers
 {
-    [RoutePrefix("accounts")]
+    [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [Route("users")]
         public IHttpActionResult GetUsers()
         {
@@ -58,7 +58,6 @@ namespace KarabowID.Controllers
         }
 
         [AllowAnonymous]
-        [Route("create")]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {
             if (!ModelState.IsValid)
@@ -83,51 +82,39 @@ namespace KarabowID.Controllers
             string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
             var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
-            
-            try
-            {
-                await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl ?? "" + "\">here</a>");
 
-            }
-            catch(Exception ex)
-            {
-                return Ok("Email not sent :" + ex);
-            }
+            await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl ?? ""+"\">here</a>");
             
             Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
 
             return Created(locationHeader, TheModelFactory.Create(user));
-           // return Ok();
+            return Ok();
         }
 
         [AllowAnonymous]
         [HttpGet]
         [Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
-        public async Task<HttpResponseMessage> ConfirmEmail(string userId = "", string code = "")
+        public async Task<IHttpActionResult> ConfirmEmail(string userId = "", string code = "")
         {
             if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(code))
             {
-                //ModelState.AddModelError("", "User Id and Code are required");
-                //var response = Request.CreateResponse(HttpStatusCode.BadRequest,ModelState,"application/json");
-                //response.ReasonPhrase = "Bad request";
-                var response = Request.CreateResponse(HttpStatusCode.Redirect,ModelState,"application/json");
-                response.Headers.Location = new Uri("http://localhost:20204/UI/Index");
-                return response;
+                ModelState.AddModelError("", "User Id and Code are required");
+                return BadRequest(ModelState);
             }
 
             //ApplicationUser user = await this.AppUserManager.FindAsync(context.UserName, context.Password);
             code.Replace(" ",null);
             IdentityResult result = await this.AppUserManager.ConfirmEmailAsync(userId, code);
-            
+
             if (result.Succeeded)
             {
-                var response = Request.CreateResponse(HttpStatusCode.Redirect, ModelState, "application/json");
-                response.Headers.Location = new Uri("http://localhost:20204/UI/Email_Confirmation?"+result.Succeeded);
-                return response;
+                // var response = Request.CreateResponse(HttpStatusCode.Created);
+                 // response.Headers.Location = new Uri("http://localhost:20204/UI/Emial_Confirmation");                
+                  return Ok("Confirmed"); 
             }
             else
             {
-                return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                return GetErrorResult(result);
             }
         }
 
