@@ -73,7 +73,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: '/api/accounts/user/'+user,
+            url: '/accounts/user/'+user,
             headers: headers
         }).done(function (data) {
 
@@ -98,7 +98,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/api/accounts/create',
+            url: '/accounts/create',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function (jqXHR) {

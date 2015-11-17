@@ -242,6 +242,18 @@
     <Compile Include="Migrations\201503241443567_InitialCreate.Designer.cs">
       <DependentUpon>201503241443567_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511162301262_dbmodel.cs" />
+    <Compile Include="Migrations\201511162301262_dbmodel.Designer.cs">
+      <DependentUpon>201511162301262_dbmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511162312412_dbmodel1.cs" />
+    <Compile Include="Migrations\201511162312412_dbmodel1.Designer.cs">
+      <DependentUpon>201511162312412_dbmodel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511162317012_dbmodel2.cs" />
+    <Compile Include="Migrations\201511162317012_dbmodel2.Designer.cs">
+      <DependentUpon>201511162317012_dbmodel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\ModelFactory.cs" />
@@ -257,6 +269,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503241443567_InitialCreate.resx">
       <DependentUpon>201503241443567_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511162301262_dbmodel.resx">
+      <DependentUpon>201511162301262_dbmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511162312412_dbmodel1.resx">
+      <DependentUpon>201511162312412_dbmodel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511162317012_dbmodel2.resx">
+      <DependentUpon>201511162317012_dbmodel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

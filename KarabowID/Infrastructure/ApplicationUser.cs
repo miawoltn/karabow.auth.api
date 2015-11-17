@@ -16,6 +16,8 @@ namespace KarabowID.Infrastructure
         [MaxLength(200)]
         public string FullName { get; set; }
 
+        public string Address { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
