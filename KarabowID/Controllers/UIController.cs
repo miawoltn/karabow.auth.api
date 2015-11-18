@@ -49,6 +49,31 @@ namespace KarabowID.Controllers
         [System.Web.Http.Route("Email_Confirmation", Name = "EmailActivate")]
         public ActionResult Email_Confirmation(string userId, string code)
         {
+<<<<<<< HEAD
+=======
+           //using (var client = new HttpClient())
+           // {
+           //    // //client.BaseAddress = new Uri("http://localhost:20204/");
+           //    // client.DefaultRequestHeaders.Accept.Clear();
+           //    // client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+           //    // //code.Replace("%2","+");
+           //    //string uri = "http://localhost:20204/api/accounts/ConfirmEmail?userId=" + userId + "&code=" + code;
+           //    // //var callbackUrl = new Uri("http://localhost:20204/api/accounts/ConfirmEmail?userId=" + userId + "&code=" + code);
+           //    //// var callbackUrl = new Uri(Url.Encode(uri));
+           //    // HttpResponseMessage response = client.GetAsync(uri).Result;
+           //     if (response.IsSuccessStatusCode)
+           //     {
+           //         return View();
+           //     }
+           //    else
+           //     {
+           //         ViewBag.Message = response.ReasonPhrase + code;
+           //         return View();
+           //     }
+
+           //}
+
+>>>>>>> parent of e46a8f6... Revert "Update"
             return View();
         }
 	}

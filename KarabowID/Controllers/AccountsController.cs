@@ -86,7 +86,7 @@ namespace KarabowID.Controllers
             
             try
             {
-                await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl ?? "" + "\">here</a>");
+                await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", @"Please confirm your account by clicking <a href="" + callbackUrl"" + "">here</a>");
 
             }
             catch(Exception ex)
@@ -117,6 +117,7 @@ namespace KarabowID.Controllers
             
             if (result.Succeeded)
             {
+                //redirect the user to a success page after a successful email confirmation
                 var response = Request.CreateResponse(HttpStatusCode.Redirect, ModelState, "application/json");
                 response.Headers.Location = new Uri("http://localhost:20204/UI/Email_Confirmation?confirmed="+result.Succeeded.ToString().ToLower());
                 return response;

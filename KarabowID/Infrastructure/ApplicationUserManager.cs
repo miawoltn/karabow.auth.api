@@ -31,6 +31,7 @@ namespace KarabowID.Infrastructure
                 {
                     //Code for email confirmation and reset password life time
                     TokenLifespan = TimeSpan.FromHours(6)
+                    
                 };
             }
 
